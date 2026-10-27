@@ -13,7 +13,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0e1626;
+    --bg: #f5f3ef;
     --surface: #16213a;
     --ink: #e8eefb;
     --muted: #9fb0cf;
@@ -594,7 +594,7 @@ section {
 /* Nút nổi */
 .float {
   position: fixed;
-  left: 12px;
+  right: 12px;
   bottom: calc(12px + env(safe-area-inset-bottom, 0px));
   z-index: 30;
   display: flex;

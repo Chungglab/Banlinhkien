@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>LinhkienHn – Linh kiện điện tử Hà Nội</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="util">
+      <div class="wrap">
+        <span>Hotline: <a data-tel href="#">0900 000 000</a></span>
+        <span>Email: <a data-mail href="#">lienhe@linhkienhn.vn</a></span>
+        <span class="push"
+          ><a href="#footer">Hướng dẫn mua hàng</a
+          ><a href="#footer">Liên hệ</a></span
+        >
+      </div>
+    </div>
+
+    <header class="head">
+      <div class="wrap head-in">
+        <button
+          id="menuBtn"
+          class="menu-btn"
+          type="button"
+          aria-label="Mở danh mục"
+        >
+          ☰
+        </button>
+        <a class="logo" href="#top">Linhkien<b>Hn</b></a>
+        <form id="searchForm" class="search" role="search">
+          <input
+            id="search"
+            type="search"
+            placeholder="Tìm linh kiện: ESP32, DHT22, relay..."
+            aria-label="Tìm sản phẩm"
+          />
+          <button type="submit">Tìm</button>
+        </form>
+        <button id="openList" class="cart" type="button">
+          Danh sách báo giá <span id="count">0</span>
+        </button>
+      </div>
+      <nav class="nav">
+        <div class="wrap">
+          <a href="#products" data-view="all">Tất cả sản phẩm</a>
+          <a href="#products" data-view="new">Hàng mới về</a>
+          <a href="#products" data-view="hot">Bán chạy</a>
+          <a href="#footer">Chính sách</a>
+          <a href="#footer">Liên hệ</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="wrap layout" id="top">
+      <aside id="side" class="side">
+        <h2>Danh mục sản phẩm</h2>
+        <ul id="catList" class="cat-list"></ul>
+      </aside>
+
+      <main>
+        <section class="hero">
+          <h1>Linh kiện điện tử, module, kit phát triển tại Hà Nội</h1>
+          <p>
+            Chọn sản phẩm vào danh sách, để lại số điện thoại. LinhkienHn báo
+            giá và liên hệ lại.
+          </p>
+          <a class="btn" href="#products">Xem sản phẩm</a>
+        </section>
+
+        <section id="newSec">
+          <div class="sec-head"><h2>Hàng mới về</h2></div>
+          <div id="newGrid" class="grid"></div>
+        </section>
+
+        <section id="products">
+          <div class="sec-head">
+            <h2 id="title">Tất cả sản phẩm</h2>
+            <span id="resCount"></span>
+          </div>
+          <div id="grid" class="grid" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <footer id="footer" class="foot">
+      <div class="wrap foot-grid">
+        <div>
+          <h3>Thông tin hỗ trợ</h3>
+          <a href="#">Yêu cầu báo giá</a>
+          <a href="#">Mua hàng và thanh toán</a>
+          <a href="#">Chính sách đổi trả</a>
+          <a href="#">Chính sách bảo mật thông tin</a>
+          <a href="#">Quy định bảo hành</a>
+        </div>
+        <div>
+          <h3>Mua hàng online</h3>
+          <p>Hotline &amp; Zalo: <a data-tel href="#">0900 000 000</a></p>
+          <p>Kỹ thuật: <a data-tel href="#">0900 000 000</a></p>
+          <p>Email: <a data-mail href="#">lienhe@linhkienhn.vn</a></p>
+        </div>
+        <div>
+          <h3>Cửa hàng</h3>
+          <p>
+            <b>Cơ sở 1:</b> Địa chỉ của bạn, Hà Nội<br />Mở cửa: 8h00 – 18h00
+          </p>
+          <p><b>Cơ sở 2:</b> Địa chỉ khác (nếu có)</p>
+        </div>
+        <div>
+          <h3>Kết nối</h3>
+          <a href="#" target="_blank" rel="noopener">Facebook</a>
+          <a id="zaloLink" href="#" target="_blank" rel="noopener">Zalo</a>
+          <a href="#" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <div class="wrap">
+          © LinhkienHn. Tên đơn vị, mã số đăng ký kinh doanh, địa chỉ trụ sở:
+          bạn điền vào đây.
+        </div>
+      </div>
+    </footer>
+
+    <div id="overlay" class="overlay" hidden></div>
+    <aside
+      id="drawer"
+      class="drawer"
+      aria-hidden="true"
+      aria-label="Danh sách báo giá"
+    >
+      <div class="drawer-head">
+        <h2>Danh sách cần báo giá</h2>
+        <button id="closeList" type="button" aria-label="Đóng">✕</button>
+      </div>
+      <ul id="items" class="items"></ul>
+      <p id="empty" class="empty">
+        Chưa có sản phẩm nào. Bấm “Thêm vào danh sách” ở sản phẩm bạn cần.
+      </p>
+      <form id="quote" class="form" novalidate>
+        <label>Họ tên<input name="name" required autocomplete="name" /></label>
+        <label
+          >Số điện thoại<input
+            name="phone"
+            type="tel"
+            required
+            inputmode="tel"
+            autocomplete="tel"
+        /></label>
+        <label
+          >Liên hệ qua
+          <select name="channel">
+            <option>Gọi điện</option>
+            <option>Zalo</option>
+            <option>Facebook</option>
+          </select>
+        </label>
+        <label
+          >Ghi chú (món chưa có trên web, giờ tiện gọi...)<textarea
+            name="note"
+            rows="3"
+          ></textarea>
+        </label>
+        <input
+          name="website"
+          class="hp"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+        />
+        <button id="send" class="btn-send" type="submit">
+          Gửi yêu cầu báo giá
+        </button>
+        <p id="msg" class="msg" role="status"></p>
+      </form>
+    </aside>
+
+    <div class="float">
+      <a data-tel href="#">Gọi ngay</a>
+      <a id="zaloBtn" href="#" target="_blank" rel="noopener">Zalo</a>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
